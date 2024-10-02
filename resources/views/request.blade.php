@@ -48,17 +48,17 @@
 
 <div class="info-container">
     <h2>Informações do Usuário</h2>
-    <div class="info">
-        <strong>Nome:</strong>
-    </div>
-    <div class="info">
-        <strong>Idade:</strong>
-    </div>
-    <div class="info">
-        <strong>Género:</strong>
-    </div>
+    
+    @foreach($dados as $index => $dado)
+        <div class="info">
+            <strong>{{$index}}: {{$dado}}</strong>
+        </div>
+    @endforeach
 
-    <button onclick="window.print()">Imprimir</button>
+    <form action="/">
+        <button>Voltar</button>
+    </form>
+
 </div>
 
 </body>

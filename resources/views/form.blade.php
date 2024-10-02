@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário Centralizado</title>
+    <title>Formulário</title>
     <style>
         body {
             display: flex;
@@ -41,14 +41,36 @@
 </head>
 <body>
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
 <div class="form-container">
-    <form action="/response" method="POST">
+    <form action="/request" method="POST">
         @csrf
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
 
+        <label for="sobrenome">SobreNome:</label>
+        <input type="text" id="sobrenome" name="sobrenome" required>
+
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" required>
+
         <label for="idade">Idade:</label>
         <input type="number" id="idade" name="idade" required>
+
+        <label for="data">Data de Nascimento:</label>
+        <input type="date" id="data" name="data" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+
+        <label for="altura">Altura:</label>
+        <input type="number" id="altura" name="altura" step="0.01" required>
 
         <label for="genero">Género:</label>
         <select id="genero" name="genero" required>
